@@ -17,7 +17,7 @@ export const Filter = () => {
   return (
     <FilterWrap>
       <TextField
-        autoComplete="none"
+        autoComplete="off"
         label="Find contacts by name"
         variant="outlined"
         type="text"
