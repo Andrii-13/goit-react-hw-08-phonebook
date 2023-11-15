@@ -11,7 +11,6 @@ import { selectContactError, selectContactIsLoading } from 'redux/selectors';
 import { useDispatch, useSelector } from 'react-redux';
 import ErrMessage from './ErrMessage/ErrMessage';
 import { fetchContacts } from '../redux/operations';
-import { Box, Button, Stack, TextField } from '@mui/material';
 
 export const App = () => {
   const dispatch = useDispatch();
