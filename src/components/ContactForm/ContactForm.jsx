@@ -1,11 +1,12 @@
 import { FieldEl, FormEl } from './ContactForm.styled';
 import { useDispatch, useSelector } from 'react-redux';
 // import { addContacts } from 'redux/contactSlice';
-import { Formik } from 'formik';
+import { Field, Formik } from 'formik';
 import { object, string, number } from 'yup';
 import FormError from 'components/FormError/FormError';
 import { selectContactItems } from 'redux/selectors';
 import { addContact } from 'redux/operations';
+import { Button, TextField } from '@mui/material';
 
 const schema = object({
   name: string()
@@ -19,8 +20,6 @@ export const ContactForm = () => {
   const dispatch = useDispatch();
   const contacts = useSelector(selectContactItems);
 
-
-
   const handleSubmit = (values, { resetForm }) => {
     resetForm();
     if (
@@ -32,9 +31,9 @@ export const ContactForm = () => {
       alert(`${values.name} is already in contacts`);
       return;
     }
-   dispatch(addContact(values));
-  
-   console.log(values);
+    dispatch(addContact(values));
+
+    console.log(values);
   };
 
   const initialValues = {
@@ -48,14 +47,17 @@ export const ContactForm = () => {
       validationSchema={schema}
     >
       <FormEl autoComplete="off">
-        <label htmlFor="name">Name</label>
+      <label htmlFor="name">Name</label>
         <div>
           <FieldEl
+            // as={TextField}
             type="text"
             id="name"
             name="name"
             placeholder="Enter name ..."
-          />
+            label="Name" variant="outlined"
+            />
+         
           <FormError name="name" />
         </div>
 
@@ -69,7 +71,10 @@ export const ContactForm = () => {
           />
           <FormError name="number" />
         </div>
-        <button type="submit">Add contact</button>
+        {/* <button type="submit">Add contact</button> */}
+        <Button variant="contained" type="submit">
+          Add contact
+        </Button>
       </FormEl>
     </Formik>
   );

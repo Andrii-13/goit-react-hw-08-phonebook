@@ -1,3 +1,4 @@
+// import { TextField } from '@mui/material';
 import styled from 'styled-components';
 
 export const FilterWrap = styled.div`
@@ -20,11 +21,8 @@ input{
     height: 26px;
     outline: none;  
     border-radius: 5px;
-
-   
-    &:focus{
-        outline: 1px solid rgba(0, 255, 255);
-    }
+    background-color: #fff;
+ 
 }
   
 `;

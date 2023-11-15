@@ -1,3 +1,4 @@
+import { Button } from '@mui/material';
 import { List } from './ContactList.styled';
 import { useSelector, useDispatch } from 'react-redux';
 import { deleteContact } from 'redux/operations';
@@ -21,7 +22,8 @@ export const ContactList = () => {
           return (
             <li key={id}>
               {name}: {number}
-              <button onClick={() => onDeleteContact(id)}>Delete</button>
+              {/* <button onClick={() => onDeleteContact(id)}>Delete</button> */}
+              <Button variant="contained" onClick={() => onDeleteContact(id)}>Delete</Button>
             </li>
           );
         }),

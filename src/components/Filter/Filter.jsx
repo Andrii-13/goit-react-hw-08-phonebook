@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { FilterWrap } from './Filter.styled';
 import { useDispatch } from 'react-redux';
-import { filterContacts } from 'redux/filterSlice'; 
+import { filterContacts } from 'redux/filterSlice';
+import { TextField } from '@mui/material';
 
 export const Filter = () => {
   const dispatch = useDispatch();
@@ -15,8 +16,10 @@ export const Filter = () => {
   };
   return (
     <FilterWrap>
-      <label htmlFor="filter">Find contacts by name</label>
-      <input
+      <TextField
+        autoComplete="none"
+        label="Find contacts by name"
+        variant="outlined"
         type="text"
         id="filter"
         name="filter"
