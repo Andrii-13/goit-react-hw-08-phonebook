@@ -1,12 +1,12 @@
 import { FieldEl, FormEl } from './ContactForm.styled';
 import { useDispatch, useSelector } from 'react-redux';
 // import { addContacts } from 'redux/contactSlice';
-import { Field, Formik } from 'formik';
+import { Formik } from 'formik';
 import { object, string, number } from 'yup';
 import FormError from 'components/FormError/FormError';
 import { selectContactItems } from 'redux/selectors';
 import { addContact } from 'redux/operations';
-import { Button, TextField } from '@mui/material';
+import { Button } from '@mui/material';
 
 const schema = object({
   name: string()
