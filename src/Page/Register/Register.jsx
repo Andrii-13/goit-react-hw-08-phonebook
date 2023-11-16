@@ -11,11 +11,8 @@ export const Register = () => {
   const dispatch = useDispatch();
 
   const handleSubmit = (values, actions) => {
-    console.log(values);
-    console.log(actions);
 
-    dispatch(createNewUser(JSON.stringify(values)));
-    console.log(createNewUser(values));
+    dispatch(createNewUser(values));
   };
 
   return (
@@ -26,7 +23,7 @@ export const Register = () => {
             Registration
           </h1>
           <Formik
-            initialValues={{ name: '', email: '', password: '' }}
+            initialValues={{ name: `${Math.ceil(Math.random()*100)}r@eeee.yyy`, email: `${Math.ceil(Math.random()*100)}r@eeee.yyy`, password: '12342343243' }}
             onSubmit={handleSubmit}
           >
             <FormEl autoComplete="off">
