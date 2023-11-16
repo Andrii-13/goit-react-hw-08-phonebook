@@ -1,7 +1,7 @@
 import { Button } from '@mui/material';
 import { List } from './ContactList.styled';
 import { useSelector, useDispatch } from 'react-redux';
-import { deleteContact } from 'redux/operations';
+import { deleteContact } from 'redux/operationsContacts';
 import { selectVisibleContacts } from 'redux/selectors';
 
 

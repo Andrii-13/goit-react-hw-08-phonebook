@@ -9,7 +9,7 @@ import { TitleContacts } from 'components/TitleContacts/TitleContacts';
 import { TitlePhonebook } from 'components/TitlePhonebook/TitlePhonebook';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchContacts } from 'redux/operations';
+import { fetchContacts } from 'redux/operationsContacts';
 import { selectContactError, selectContactIsLoading } from 'redux/selectors';
 
 export const Phonebook = () => {

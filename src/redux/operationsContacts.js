@@ -45,26 +45,3 @@ export const deleteContact = createAsyncThunk(
   }
 );
 
-
-
-// const customMidle = state => {
-//   return next => {
-//     return action => {
-//       console.log(action);
-//       return next(action);
-//     };
-//   };
-// };
-
-// export const getContactsThunk = () => {
-//   const resp = async dispatch => {
-//     try {
-//       dispatch(contactSlice.actions.fetchingInProgress());
-//       const data = await fetchContacts();
-//       dispatch(contactSlice.actions.fetchingSuccess(data));
-//     } catch (error) {
-//       dispatch(contactSlice.actions.fetchingError(error));
-//     }
-//   };
-//   return resp;
-// };

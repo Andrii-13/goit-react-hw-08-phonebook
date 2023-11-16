@@ -1,5 +1,5 @@
 import { createSlice, isAnyOf } from '@reduxjs/toolkit';
-import { addContact, deleteContact, fetchContacts } from 'redux/operations';
+import { addContact, deleteContact, fetchContacts } from 'redux/operationsContacts';
 
 const handlePanding = state => {
   state.contacts.isLoading = true;

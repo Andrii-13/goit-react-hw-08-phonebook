@@ -3,8 +3,21 @@ import { FieldEl, FormEl } from 'components/ContactForm/ContactForm.styled';
 import { Section } from 'components/Section/Section.styled';
 import { Formik } from 'formik';
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import { createNewUser } from 'redux/auth/auth-operations';
 
 export const Register = () => {
+
+  const dispatch = useDispatch();
+
+  const handleSubmit = (values, actions) => {
+    console.log(values);
+    console.log(actions);
+
+    dispatch(createNewUser(JSON.stringify(values)));
+    console.log(createNewUser(values));
+  };
+
   return (
     <main>
       <Section>
@@ -12,7 +25,10 @@ export const Register = () => {
           <h1 style={{ marginTop: '40px', textAlign: 'center', color: 'gray' }}>
             Registration
           </h1>
-          <Formik>
+          <Formik
+            initialValues={{ name: '', email: '', password: '' }}
+            onSubmit={handleSubmit}
+          >
             <FormEl autoComplete="off">
               <label htmlFor="name">Name</label>
               <div>
@@ -28,15 +44,15 @@ export const Register = () => {
 
                 {/* <FormError name="name" /> */}
               </div>
-              <label htmlFor="mail">E-mail</label>
+              <label htmlFor="email">E-mail</label>
               <div>
                 <FieldEl
                   // as={TextField}
-                  type="mail"
-                  id="mail"
-                  name="mail"
+                  type="email"
+                  id="email"
+                  name="email"
                   placeholder="Enter e-mail ..."
-                  label="mail"
+                  label="email"
                   variant="outlined"
                 />
 
