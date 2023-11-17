@@ -4,7 +4,7 @@ import { Section } from 'components/Section/Section.styled';
 import { Formik } from 'formik';
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { createNewUser } from 'redux/auth/auth-operations';
+import { register } from 'redux/auth/auth-operations';
 
 export const Register = () => {
 
@@ -12,7 +12,7 @@ export const Register = () => {
 
   const handleSubmit = (values, actions) => {
 
-    dispatch(createNewUser(values));
+    dispatch(register(values));
   };
 
   return (
@@ -23,7 +23,8 @@ export const Register = () => {
             Registration
           </h1>
           <Formik
-            initialValues={{ name: `${Math.ceil(Math.random()*100)}r@eeee.yyy`, email: `${Math.ceil(Math.random()*100)}r@eeee.yyy`, password: '12342343243' }}
+            initialValues={{ name: ``, email: ``, password: '' }}
+            // initialValues={{ name: `${Math.ceil(Math.random()*100)}r@eeee.yyy`, email: `${Math.ceil(Math.random()*100)}r@eeee.yyy`, password: '12342343243' }}
             onSubmit={handleSubmit}
           >
             <FormEl autoComplete="off">

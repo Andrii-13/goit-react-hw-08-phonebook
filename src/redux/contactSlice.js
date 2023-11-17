@@ -1,19 +1,7 @@
 import { createSlice, isAnyOf } from '@reduxjs/toolkit';
 import { addContact, deleteContact, fetchContacts } from 'redux/operationsContacts';
+import { handleFulfilled, handlePanding, handleRejected } from './helper/generalExtraReducers';
 
-const handlePanding = state => {
-  state.contacts.isLoading = true;
-};
-
-const handleFulfilled = (state, action) => {
-  state.contacts.isLoading = false;
-  state.contacts.error = null;  
-};
-
-const handleRejected = (state, action) => {
-  state.contacts.isLoading = false;
-  state.contacts.error = action.payload;
-};
 
 const contactSlice = createSlice({
   name: 'contacts',
