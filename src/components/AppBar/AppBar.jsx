@@ -7,15 +7,15 @@ import { UserMenu } from 'components/UserMenu/UserMenu';
 import { useAuth } from 'hooks/useAuth';
 
 export const AppBar = () => {
-  // const { isLoggedIn } = useAuth();
+  const { isLoggedIn } = useAuth();
   return (
     <HeaderWrap>
       <Container>
         <HeaderNav>
           <Navigation />
-          {/* {isLoggedIn ?  */}
+          {isLoggedIn ? 
           <UserMenu /> : <AuthNav />
-          {/* } */}
+          }
         </HeaderNav>
       </Container>
     </HeaderWrap>
