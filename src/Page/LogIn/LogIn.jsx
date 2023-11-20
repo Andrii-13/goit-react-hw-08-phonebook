@@ -4,7 +4,7 @@ import { Section } from 'components/Section/Section.styled';
 import { Formik } from 'formik';
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { logIn } from 'redux/auth/auth-operations';
+import { logIn } from 'redux/auth/operations';
 
 export const LogIn = () => {
   const dispatch = useDispatch();

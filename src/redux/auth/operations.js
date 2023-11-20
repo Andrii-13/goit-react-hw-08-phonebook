@@ -6,6 +6,7 @@ import axios from 'axios';
 
 
 //sssqqq@sss.sss
+//plomir@plomir.plomir
 
 axios.defaults.baseURL = 'https://connections-api.herokuapp.com';
 
@@ -19,36 +20,33 @@ const clearAuthHeader = () => {
   axios.defaults.headers.common.Authorization = '';
 };
 
-
 /*
  * POST @ /users/signup
  * body: { name, email, password }
  */
-
 export const register = createAsyncThunk(
-  'user/createUser',
-  async (values, thunkAPI) => {
-    console.log(values);
+  'auth/register',
+  async (credentials, thunkAPI) => {
     try {
-      const responce = await axios.post('/users/signup', values);
-       // After successful registration, add the token to the HTTP header
-      setAuthHeader(responce.data.token);
-      console.log(responce);
-      return responce.data;
+      const res = await axios.post('/users/signup', credentials);
+      // After successful registration, add the token to the HTTP header
+      setAuthHeader(res.data.token);
+      return res.data;
     } catch (error) {
-      return thunkAPI.rejectWithValue(error);
+      return thunkAPI.rejectWithValue(error.message);
     }
   }
 );
+
 /*
  * POST @ /users/login
  * body: { email, password }
  */
 export const logIn = createAsyncThunk(
   'auth/login',
-  async (values, thunkAPI) => {
+  async (credentials, thunkAPI) => {
     try {
-      const res = await axios.post('/users/login', values);
+      const res = await axios.post('/users/login', credentials);
       // After successful login, add the token to the HTTP header
       setAuthHeader(res.data.token);
       return res.data;
@@ -91,10 +89,11 @@ export const refreshUser = createAsyncThunk(
     try {
       // If there is a token, add it to the HTTP header and perform the request
       setAuthHeader(persistedToken);
-      const res = await axios.get('/users/current');
+      const res = await axios.get('/users/me');
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
   }
 );
+

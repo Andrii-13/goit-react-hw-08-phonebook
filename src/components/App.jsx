@@ -5,20 +5,21 @@ import { Home } from 'Page/Home';
 import { Register } from 'Page/Register/Register';
 import { LogIn } from 'Page/LogIn/LogIn';
 import { useDispatch} from 'react-redux';
-import { refreshUser } from 'redux/auth/auth-operations';
+import { refreshUser } from 'redux/auth/operations';
 import { Phonebook } from 'Page/Phonebook';
-import { useAuth } from 'hook';
 import { LogOut } from './LogOut/LogOut';
+import { useAuth } from 'hooks';
 
 export const App = () => {
   const dispatch = useDispatch();
   // const { isRefreshing } = useAuth();
 
-  // при кожному монтуванні Арр, персіст записує значеня токена із ЛС в Редакс
-  useEffect(() => dispatch(refreshUser), [dispatch]);
+  useEffect(() => {
+    dispatch(refreshUser());
+  }, [dispatch]);
 
   return (
-  // isRefreshing ?(
+  // isRefreshing ? (
   //   <b>Refreshing user...</b>
   // ) : (
     <Routes>
