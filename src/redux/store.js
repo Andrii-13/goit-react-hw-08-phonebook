@@ -1,6 +1,8 @@
-import { combineReducers, configureStore } from '@reduxjs/toolkit';
-import { contactReducer } from './contactSlice';
-import { filterReducer } from './filterSlice';
+import {
+  //  combineReducers,
+   configureStore } from '@reduxjs/toolkit';
+// import { contactReducer } from './contactSlice';
+// import { filterReducer } from './filterSlice';
 import { authReducer } from './auth/slice';
 import {
   persistStore,
@@ -15,11 +17,11 @@ import {
 import storage from 'reduxjs-toolkit-persist/lib/storage';
 
 // обєднуємо логікою всі редюсери зі стору
-const rootReducer = combineReducers({
+// const rootReducer = combineReducers({
   // contacts: contactReducer,
   // filter: filterReducer,
-  auth: authReducer,
-});
+  // auth: authReducer,
+// });
 
 // Persisting token field from auth slice to localstorage
 const authPersistConfig = {
