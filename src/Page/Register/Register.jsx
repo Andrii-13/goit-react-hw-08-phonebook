@@ -6,7 +6,7 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { register } from 'redux/auth/operations';
 
-export const Register = () => {
+const Register = () => {
 
   const dispatch = useDispatch();
 
@@ -80,3 +80,5 @@ export const Register = () => {
     </main>
   );
 };
+
+export default Register;

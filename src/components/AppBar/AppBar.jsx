@@ -8,6 +8,9 @@ import { useAuth } from 'hooks/useAuth';
 
 export const AppBar = () => {
   const { isLoggedIn } = useAuth();
+  // const selec = useSelector(state => state)
+
+  // console.log(selec)
   return (
     <HeaderWrap>
       <Container>
@@ -15,7 +18,7 @@ export const AppBar = () => {
           <Navigation />
           {isLoggedIn ? 
           <UserMenu /> : <AuthNav />
-          }
+           } 
         </HeaderNav>
       </Container>
     </HeaderWrap>

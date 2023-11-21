@@ -12,7 +12,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchContacts } from 'redux/operationsContacts';
 import { selectContactError, selectContactIsLoading } from 'redux/selectors';
 
-export const Phonebook = () => {
+const Phonebook = () => {
   const dispatch = useDispatch();
   const isLoading = useSelector(selectContactIsLoading);
   const error = useSelector(selectContactError);
@@ -41,3 +41,5 @@ export const Phonebook = () => {
     </>
   );
 };
+
+export default Phonebook;

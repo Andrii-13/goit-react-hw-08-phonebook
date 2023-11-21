@@ -2,7 +2,7 @@ import { Container } from '@mui/material'
 import { Section } from 'components/Section/Section.styled'
 import React from 'react'
 
-export const Home = () => {
+const Home = () => {
   return (
     <main>
     <Section>
@@ -15,3 +15,4 @@ export const Home = () => {
   </main>
   )
 }
+ export default Home;
