@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const HeaderWrap = styled.header`
+
 position: fixed;
 width: 100%;
   background-color: #799186;
@@ -11,6 +12,7 @@ width: 100%;
 export const HeaderNav = styled.nav`
 
   display: flex;
+  justify-content: space-between;
   padding: 5px 10px;
   align-items: center;
   gap: 20px;

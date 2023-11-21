@@ -7,8 +7,8 @@ const Home = () => {
     <main>
     <Section>
       <Container>
-        <h1 style={{marginTop: '40px', textAlign: 'center', color: 'gray' }}>
-          Welcome
+        <h1 style={{marginTop: '200px', textAlign: 'center', color: 'gray' }}>
+          Your Phonebook
         </h1>
       </Container>
     </Section>

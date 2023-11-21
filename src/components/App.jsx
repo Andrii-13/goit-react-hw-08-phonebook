@@ -32,7 +32,6 @@ export const App = () => {
             <RestrictedRoute redirectTo="/phonebook" component={<Register />} />
           }
         />
-
         <Route
           path="logIn"
           element={
