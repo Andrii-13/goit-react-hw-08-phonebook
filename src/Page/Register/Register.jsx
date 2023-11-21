@@ -60,7 +60,7 @@ const Register = () => {
               <div>
                 <FieldEl
                   // as={TextField}
-                  type="text"
+                  type="password"
                   id="password"
                   name="password"
                   placeholder="Enter password ..."
