@@ -1,12 +1,13 @@
-import { FieldEl, FormEl } from './ContactForm.styled';
+// import { FieldEl, FormEl } from './ContactForm.styled';
 import { useDispatch, useSelector } from 'react-redux';
 // import { addContacts } from 'redux/contactSlice';
-import { Formik } from 'formik';
+// import { Formik } from 'formik';
 import { object, string, number } from 'yup';
-import FormError from 'components/FormError/FormError';
+// import FormError from 'components/FormError/FormError';
 import { selectContactItems } from 'redux/selectors';
 import { addContact } from 'redux/operationsContacts';
-import { Button } from '@mui/material';
+import { Button, TextField } from '@mui/material';
+import { useFormik } from 'formik';
 
 const schema = object({
   name: string()
@@ -36,46 +37,51 @@ export const ContactForm = () => {
     console.log(values);
   };
 
-  const initialValues = {
-    name: '',
-    number: '',
-  };
-  return (
-    <Formik
-      initialValues={initialValues}
-      onSubmit={handleSubmit}
-      validationSchema={schema}
-    >
-      <FormEl autoComplete="off">
-      <label htmlFor="name">Name</label>
-        <div>
-          <FieldEl
-            // as={TextField}
+  const formik = useFormik({
+    initialValues: {
+      name: '',
+      number: '',
+    },
+    onSubmit:  handleSubmit ,
+    validationSchema:  schema ,
+  });
+
+  return (    
+      <form autoComplete="off" onSubmit={formik.handleSubmit}>
+        <div className='inputWrap'>
+          <TextField
             type="text"
             id="name"
             name="name"
             placeholder="Enter name ..."
-            label="Name" variant="outlined"
-            />
-         
-          <FormError name="name" />
+            label="Name"
+            variant="outlined"
+            onChange={formik.handleChange}
+            value={formik.values.name}
+          />
+          {formik.touched.name && formik.errors.name ? (
+        <div className='FormikErr'>{formik.errors.name}</div>
+      ) : null}
+          {/* <FormError name="name" /> */}
         </div>
-
-        <label htmlFor="number">Number</label>
-        <div>
-          <FieldEl
+        <div className='inputWrap'>
+          <TextField
             type="tel"
             name="number"
+            label="Phone"
             id="number"
             placeholder="tel: xxx-xx-xx"
+            onChange={formik.handleChange}
+            value={formik.values.number}
           />
-          <FormError name="number" />
+           {formik.touched.number && formik.errors.number ? (
+        <div className='FormikErr'>{formik.errors.number}</div>
+      ) : null}
+          {/* <FormError name="number" /> */}
         </div>
-        {/* <button type="submit">Add contact</button> */}
         <Button variant="contained" type="submit">
           Add contact
         </Button>
-      </FormEl>
-    </Formik>
+      </form>    
   );
 };

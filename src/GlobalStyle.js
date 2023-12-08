@@ -34,4 +34,14 @@ export const GlobalStyle = createGlobalStyle`
   .userName{
     color: blanchedalmond;
   }
+  
+.inputWrap{
+  display: flex;
+  margin-bottom: 40px;
+  gap: 10px;
+}
+
+  .FormikErr{
+    color: red;
+  }
 `;
