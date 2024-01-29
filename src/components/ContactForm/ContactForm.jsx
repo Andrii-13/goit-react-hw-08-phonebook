@@ -42,46 +42,44 @@ export const ContactForm = () => {
       name: '',
       number: '',
     },
-    onSubmit:  handleSubmit ,
-    validationSchema:  schema ,
+    onSubmit: handleSubmit,
+    validationSchema: schema,
   });
 
-  return (    
-      <form autoComplete="off" onSubmit={formik.handleSubmit}>
-        <div className='inputWrap'>
-          <TextField
-            type="text"
-            id="name"
-            name="name"
-            placeholder="Enter name ..."
-            label="Name"
-            variant="outlined"
-            onChange={formik.handleChange}
-            value={formik.values.name}
-          />
-          {formik.touched.name && formik.errors.name ? (
-        <div className='FormikErr'>{formik.errors.name}</div>
-      ) : null}
-          {/* <FormError name="name" /> */}
-        </div>
-        <div className='inputWrap'>
-          <TextField
-            type="tel"
-            name="number"
-            label="Phone"
-            id="number"
-            placeholder="tel: xxx-xx-xx"
-            onChange={formik.handleChange}
-            value={formik.values.number}
-          />
-           {formik.touched.number && formik.errors.number ? (
-        <div className='FormikErr'>{formik.errors.number}</div>
-      ) : null}
-          {/* <FormError name="number" /> */}
-        </div>
-        <Button variant="contained" type="submit">
-          Add contact
-        </Button>
-      </form>    
+  return (
+    <form autoComplete="off" onSubmit={formik.handleSubmit}>
+      <div className="inputWrap">
+        <TextField
+          type="text"
+          id="name"
+          name="name"
+          placeholder="Enter name ..."
+          label="Name"
+          variant="outlined"
+          onChange={formik.handleChange}
+          value={formik.values.name}
+        />
+        {formik.touched.name && formik.errors.name ? (
+          <div className="FormikErr">{formik.errors.name}</div>
+        ) : null}
+      </div>
+      <div className="inputWrap">
+        <TextField
+          type="tel"
+          name="number"
+          label="Phone"
+          id="number"
+          placeholder="tel: xxx-xx-xx"
+          onChange={formik.handleChange}
+          value={formik.values.number}
+        />
+        {formik.touched.number && formik.errors.number ? (
+          <div className="FormikErr">{formik.errors.number}</div>
+        ) : null}
+      </div>
+      <Button variant="contained" type="submit">
+        Add contact
+      </Button>
+    </form>
   );
 };

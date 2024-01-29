@@ -21,7 +21,7 @@ input{
     height: 26px;
     outline: none;  
     border-radius: 5px;
-    background-color: #fff;
+    background-color: rgb(240,240,240);
  
 }
   
