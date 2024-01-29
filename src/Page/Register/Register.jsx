@@ -40,7 +40,7 @@ const Register = () => {
           <h1 style={{ marginTop: '40px', textAlign: 'center', color: 'gray' }}>
             Registration
           </h1>
-          <form autoComplete="off" onSubmit={formik.handleSubmit}>
+          <form className ="form" autoComplete="off" onSubmit={formik.handleSubmit}>
             <div className="inputWrap">
               <TextField
                 type="text"

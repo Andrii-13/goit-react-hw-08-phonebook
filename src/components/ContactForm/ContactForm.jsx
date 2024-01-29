@@ -47,7 +47,7 @@ export const ContactForm = () => {
   });
 
   return (
-    <form autoComplete="off" onSubmit={formik.handleSubmit}>
+    <form className='form' autoComplete="off" onSubmit={formik.handleSubmit}>
       <div className="inputWrap">
         <TextField
           type="text"

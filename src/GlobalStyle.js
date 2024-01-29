@@ -17,6 +17,12 @@ export const GlobalStyle = createGlobalStyle`
       monospace;
   }
 
+h1, h2{
+  margin-top: 50px;
+text-align: center;
+color: gray;
+}
+
   img {
     display: block;
     max-width: 100%;
@@ -37,8 +43,12 @@ export const GlobalStyle = createGlobalStyle`
   
 .inputWrap{
   display: flex;
+  justify-content: center;
   margin-bottom: 40px;
   gap: 10px;
+}
+.form{
+  text-align: center;
 }
 
   .FormikErr{

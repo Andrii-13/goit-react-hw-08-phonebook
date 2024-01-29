@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { FilterWrap } from './Filter.styled';
 import { useDispatch } from 'react-redux';
 import { filterContacts } from 'redux/filterSlice';
 import { TextField } from '@mui/material';
@@ -15,7 +14,7 @@ export const Filter = () => {
     dispatch(filterContacts(input.value));
   };
   return (
-    <FilterWrap>
+    <form className='inputWrap'>
       <TextField
         autoComplete="off"
         label="Find contacts by name"
@@ -26,6 +25,6 @@ export const Filter = () => {
         value={filter}
         onChange={e => changeInput(e.target)}
       />
-    </FilterWrap>
+    </form>
   );
 };
